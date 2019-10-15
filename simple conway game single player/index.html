@@ -1,0 +1,79 @@
+<html>
+    <head> 
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            /* Create two equal columns that floats next to each other */
+            .column {
+              float: left;
+              width: 50%;
+              padding: 10px;
+              height: 600px; 
+            }
+            
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+            
+            /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+            @media screen and (max-width: 1200px) {
+              .column {
+                width: 100%;
+              }
+            }
+            </style>
+    
+</head>
+    <body>    
+        <div>UI here.</div>
+        <div>
+            <canvas id="game_canvas" width = "1000" height = "1000"  style = "border : 1px solid #000000;">
+                Hello canvas
+            </canvas>
+        </div>
+        <div>
+        <div style="text-align:left">
+            <input type="button" id="clear" name="clear" value=" Clear the game pattern"> </input>
+        </div>
+        <br><br><br>
+        </div>
+        <div class="row">
+            
+          <div class="column" style="background-color:#bbb;"><br><br><p style="font-size:40px; color: red;">Submit a readymade pattern:</p><br>
+              <input name="pattern" type="radio" value="gosperGliderGun"> Gosper Glider Gun</input><br>
+              <input name="pattern" type="radio" value="glider"> Glider</input><br>
+              <input name="pattern" type="radio" value="blinker"> Blinker</input><br>
+              <input name="pattern" type="radio" value="beacon"> Beacon</input><br>
+              <input name="pattern" type="radio" value="combination"> Combination</input><br>
+              <br><input id = "patternButton" type="submit"> </input><br><br>
+              Note : Make sure that the top left of the drawing is empty.
+            </div>
+          <div class="column" style="background-color:#aaa;">
+                <br><br><p style="font-size: 40px; color: red;">Rules of the Game:</p><br>
+                <b>For a space that is 'populated':</b><br>
+                Each cell with one or no neighbours dies, as if by solitude.<br>
+                Each cell with four or more neighbours dies, as if by overpopulation.<br>
+                Each cell with two or three neighbours survives.<br><br><br>
+                <b>For a space that is 'empty' or 'unpopulated'</b><br>
+                Each cell with three neighbors becomes populated.<br><br><br>
+                Make a pattern yourself by clicking on the cells with the mouse. <br>
+                A new generation of cells (corresponding to one iteration of the rules) is initiated automatically.<br>
+                In case, server is present, the game can be played by multiple players( Tested on more than 100 chrome instances simulataneously).<br>
+            
+            </div>
+            
+          </div>
+        <script src = "node.js"></script>
+        <script src = "grid.js"></script>
+        <script src = "game_canvas.js"></script>
+        <script src = "colors.js"></script>
+        <script src = "patterns.js"></script>
+        <script src = "controller.js"></script>
+        <script src = "game_client.js"></script> 
+    </body>
+</html>
