@@ -99,7 +99,7 @@ window.controller =
 
     },
 
-    stepInterval : setInterval(timerFunction, 1500)
+    stepInterval : setInterval(timerFunction, 4000)
 };
 
 function timerFunction()
